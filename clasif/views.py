@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def Tareas_list(request):
+    return render(request, 'ClasifWeb/Tareas_list.html', {})
