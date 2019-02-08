@@ -1,0 +1,14 @@
+{% extends 'ClasifWeb/base.html' %}
+
+{% block content %}
+    <div class="Tareas">
+        {% if tareas.published_date %}
+            <div class="date">
+                {{ tareas.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'Tareas_edit' pk=tareas.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ tareas.title }}</h1>
+        <p>{{ tareas.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}

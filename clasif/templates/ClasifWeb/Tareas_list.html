@@ -1,16 +1,11 @@
-<html>
-<head>
-    <title>Clasificadores Web</title>
-</head>
-<body>
-    <div>
-        <h1><a href="/">Clasificadores Web</a></h1>
-    </div>
+{% extends 'ClasifWeb/base.html' %}
 
-    <div>
-        <p>Publicado: 2019-02-06, 19:04</p>
-        <h2><a href="">Mi primera página</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </div>
-</body>
-</html>
+{% block content %}
+    {% for tarea in tareas %}
+        <div class="post jumbotron">
+            <div><p>Publicado: {{ tarea.published_date }} </p>
+            <h2><a href = "{% url 'Tareas_detalle' pk=tarea.pk %}" >{{ tarea.title }} </a></h2>
+            <p>{{ tarea.text|linebreaksbr }} </p></div>
+        </div>
+    {% endfor %}
+{% endblock %}
